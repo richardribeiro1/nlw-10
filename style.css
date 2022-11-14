@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --card-color-primary: #338AF3;
+  --card-title-border-color: #338AF3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+body.green {
+  --card-title-border-color: #047c3f;
+  --card-color-primary: #047c3f;
+  --card-bg-color: #1a1f1b;
+  --bg: url(./assets/bg-green.svg);
+}
+
+body.yellow {
+  --card-title-border-color: #746615;
+  --card-color-primary: #f7dd43;
+  --card-bg-color: #1d1c19;
+  --bg: url(./assets/bg-yellow.svg);
+}
+
+body {
+  background: #121214 var(--bg) no-repeat top/cover;
+}
+
+body * {
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 63px;
+}
+
+main {
+  margin-bottom: 32px;
+}
+
+#app {
+  width: fit-content;
+  margin: auto;
+  padding-top: 52px;
+}
+
+#cards {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.card {
+  text-align: center;
+  background-color: var(--card-bg-color);
+  border-radius: 6px;
+  border-bottom: 2px solid var(--card-color-primary);
+  padding: 32px 23px;   
+
+}
+
+.card h2 {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  color:#F7DD43;
+  border: 1px solid var(--card-title-border-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  margin-bottom: 53px;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.card h2 span {
+  color: #E1E1E6;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.card ul li strong {
+  color: #E1E1E6;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 125%;
+}
+
+ul {
+  list-style: none;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 270px;
+}
+
+.card ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card ul li + li {
+  padding-top: 24px;
+  border-top: 1px solid #323238;
+  
+}
+
+.card h2:hover,
+.card ul li img:hover,
+.card strong:hover {
+  transform: scale(1.1);
+}
+
+.card h2,
+.card ul li img,
+.card ul li strong {
+  transition: transform 0.2s;
+}
+
+.card {
+  opacity: 0;
+  animation: appear .2s forwards;
+}
+
+@keyframes appear {
+  0% {
+      transform: translateY(-50px);   
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  #cards {
+    max-width: 670px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
